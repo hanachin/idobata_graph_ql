@@ -16,5 +16,10 @@ Usage
 Then
 
     require 'idobata_graph_ql'
+
     p IdobataGraphQL.query('query { viewer { name } }')
-    {"viewer"=>{"name"=>"idobata-fs"}}
+    # {"viewer"=>{"name"=>"idobata-fs"}}
+
+    room_id = IdobataGraphQL.rooms.first.id
+    p IdobataGraphQL.create_message(room_id, "hi")
+    # {"createMessage"=>{"clientMutationId"=>nil}}
